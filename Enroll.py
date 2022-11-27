@@ -1,3 +1,5 @@
+#11-27-2022 Update -> When inputting informations in a Entrybox, the letters will convert to uppercase letters.
+
 from tkinter import *
 import tkinter.messagebox
 from tkinter import filedialog
@@ -88,6 +90,14 @@ def clear():
    var1.set(None)
    var.set(None)
 
+def capslock(texts):
+    a.set(a.get().upper())
+    b.set(b.get().upper())
+    p.set(p.get().upper())
+    huhu.set(huhu.get().upper())
+    huhu1.set(huhu1.get().upper())
+    huhu2.set(huhu2.get().upper())
+
 def clearpild():
     haha.delete(0, END)
     haha1.delete(0,END)
@@ -126,15 +136,6 @@ def conpirm():
         coursee[qw] = var6
         learnP[qw] = var7
         fullname[qw] = (f"{var2} {var3} {var4}")
-        #for i in lb.curselection():
-        #    studentNo[i] = var1
-        #    lname[i] = var2
-        #    fname[i] = var3
-        #    mname[i] = var4
-        #    maleFe[i] = var5
-        #    coursee[i] = var6
-        #    learnP[i] = var7
-        #    fullname[i] = (f"{var2} {var3} {var4}")
 
         haha.delete(0, END)
         haha1.delete(0,END)
@@ -159,8 +160,6 @@ def risit():
         coursee.clear()
         learnP.clear()
         fullname.clear()
-
-        #lb.delete(0, END)
 
         entry_2.delete(0, END)
         entry_1.delete(0,END)
@@ -221,19 +220,28 @@ label_0.place(x=150,y=53)
 label_1 = Label(frame2, text="Last Name:",width=20,font=("bold", 10))
 label_1.place(x=130,y=130)
 
-entry_1 = Entry(frame2)
+a = StringVar()
+
+entry_1 = Entry(frame2,textvariable=a)
+entry_1.bind("<KeyRelease>",capslock)
 entry_1.place(x=265,y=130)
 
 label_2 = Label(frame2, text="Given Name:",width=20,font=("bold", 10))
 label_2.place(x=130,y=180)
 
-entry_2 = Entry(frame2)
+b = StringVar()
+
+entry_2 = Entry(frame2,textvariable=b)
+entry_2.bind("<KeyRelease>",capslock)
 entry_2.place(x=265,y=180)
 
 label_5 = Label(frame2,text="Middle Name:",width=20,font=("bold",10))
 label_5.place(x=130,y=230)
 
-entry_5 = Entry(frame2)
+p = StringVar()
+
+entry_5 = Entry(frame2,textvariable=p)
+entry_5.bind("<KeyRelease>",capslock)
 entry_5.place(x=265,y=230)
 
 label_3 = Label(frame2, text="Gender:",width=20,font=("bold", 10))
@@ -273,8 +281,6 @@ label2.place(x=-2,y=-2)
 Button(frame3,text = "Back",width=20,bg="green",fg="white",command=lambda:show(frame1)).place(x=210,y=500)
 
 #FRAME 4===================================================================================================================================
-#a = "Student No" ; b= "Last Name";d="First Name";e="Middle Name" ; f="Gender" ; g = "Course" ; h = "Learning Modality"
-#texts = Label(frame4,text=f"          {a:<14} {b:<23} {d:<15} {e:<20} {f:<10} {g :<10} {h}\n").pack()
 title = ("Student No.","Last Name","Given Name","Middle Name","Gender","Course","Learning Modality")
 global data
 data = ttk.Treeview(frame4,columns=title,show="headings",height=20)
@@ -298,20 +304,22 @@ data.heading("Learning Modality",text="Learning Modality")
 
 data.pack()
 
-#global listbox
-#lb = Listbox(frame4,height=23, width = 97,bg="white")
-#lb.pack()
-
 Label(frame4,text="Last Name").place(x=0,y=430)
-haha = Entry(frame4)
+huhu = StringVar()
+haha = Entry(frame4,textvariable=huhu)
+haha.bind("<KeyRelease>",capslock)
 haha.place(x=100,y=430)
 
 Label(frame4,text="Given Name").place(x=0,y=460)
-haha1 = Entry(frame4)
+huhu1 = StringVar()
+haha1 = Entry(frame4,textvariable=huhu1)
+haha1.bind("<KeyRelease>",capslock)
 haha1.place(x=100, y=460)
 
 Label(frame4,text="Middle Name").place(x=0,y=490)
+huhu2 = StringVar()
 haha2 = Entry(frame4)
+haha2.bind("<KeyRelease>",capslock)
 haha2.place(x=100,y=490)
 
 Label(frame4,text="Gender").place(x=300,y=430)
