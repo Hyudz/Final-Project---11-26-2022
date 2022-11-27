@@ -1,0 +1,13 @@
+11-26-2022
+Hi to everyone whose reading this. First of all I would like to say about this file.
+
+This is a final project for the First Semester
+
+This is not a work of professionals but it is a work of a group of students. Which means
+this project might contains bugs (if there's any) or things wont work as you expected.
+
+Not sure but if there's time I would update the file for new features.
+
+That's all. Hope you like it! Happy Coding.
+
+-Code
